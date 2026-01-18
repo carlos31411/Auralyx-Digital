@@ -462,6 +462,14 @@ img{ max-width:100%; display:block; }
   z-index: 50;
 }
 
+.brand__logo-img{
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+
 .modal.is-open{ display:block; }
 
 .modal__backdrop{
@@ -512,3 +520,4 @@ img{ max-width:100%; display:block; }
   .compare{ grid-template-columns: 1fr; }
   .ctaBox{ justify-content: flex-start; }
 }
+
