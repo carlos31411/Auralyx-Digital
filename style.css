@@ -1,4 +1,3 @@
-/* style.css */
 :root{
   --bg: #0b1220;
   --soft: rgba(255,255,255,0.03);
@@ -25,53 +24,11 @@ a{ color:inherit; text-decoration:none; }
 button{ font-family:inherit; }
 img{ max-width:100%; display:block; }
 
-.container{
-  width: min(1120px, 92%);
-  margin: 0 auto;
+:focus-visible{
+  outline: 2px solid rgba(167,139,250,0.9);
+  outline-offset: 3px;
+  border-radius: 10px;
 }
-
-.header{
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  backdrop-filter: blur(12px);
-  background: rgba(11,18,32,0.65);
-  border-bottom: 1px solid var(--stroke);
-}
-
-.header__wrap{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 14px;
-  padding: 14px 0;
-}
-/* style.css */
-:root{
-  --bg: #0b1220;
-  --soft: rgba(255,255,255,0.03);
-  --card: rgba(255,255,255,0.06);
-  --card2: rgba(255,255,255,0.10);
-  --text: #e5e7eb;
-  --muted: rgba(229,231,235,0.78);
-  --stroke: rgba(255,255,255,0.12);
-  --radius: 18px;
-}
-
-*{ box-sizing:border-box; }
-html, body{ margin:0; padding:0; }
-body{
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background:
-    radial-gradient(800px 500px at 20% 10%, rgba(124,58,237,0.35), transparent 55%),
-    radial-gradient(700px 450px at 80% 20%, rgba(34,197,94,0.25), transparent 55%),
-    var(--bg);
-  color: var(--text);
-}
-
-a{ color:inherit; text-decoration:none; }
-button{ font-family:inherit; }
-img{ max-width:100%; display:block; }
 
 .container{
   width: min(1120px, 92%);
@@ -95,43 +52,55 @@ img{ max-width:100%; display:block; }
   padding: 14px 0;
 }
 
+/* BRAND */
 .brand{
   display:flex;
   align-items:center;
   gap: 12px;
+  min-width: 0;
 }
 
-/* ✅ LOGO (corrigido e melhorado) */
 .brand__logo-img{
-  width: 56px;           /* tamanho bom pro header */
-  height: 56px;          /* ✅ sem espaço: 56px */
-  object-fit: contain;   /* não distorce */
+  width: clamp(44px, 5vw, 62px);
+  height: clamp(44px, 5vw, 62px);
+  object-fit: contain;
   background: transparent;
   border-radius: 0;
   box-shadow: none;
-  transform: scale(1.25);     /* aumenta o símbolo dentro */
-  transform-origin: left center;
 }
-
-/* (opcional) se a logo ficar muito alta, descomenta essa linha */
-/* .brand__logo-img{ transform: scale(1.15); } */
 
 .brand__text{
   display:flex;
   flex-direction:column;
   line-height: 1.1;
+  min-width: 0;
 }
 
-.brand__name{ font-weight: 850; letter-spacing: 0.2px; }
-.brand__mini{ color: var(--muted); font-size: 13px; }
+.brand__name{
+  font-weight: 850;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.brand__mini{
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 .header__actions{
   display:flex;
   align-items:center;
   gap: 10px;
   flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
+/* BUTTONS */
 .btn{
   display:inline-flex;
   align-items:center;
@@ -145,6 +114,7 @@ img{ max-width:100%; display:block; }
   transition: transform .12s ease, background .12s ease, filter .12s ease;
   background: transparent;
   color: var(--text);
+  user-select: none;
 }
 
 .btn:active{ transform: translateY(1px); }
@@ -165,6 +135,7 @@ img{ max-width:100%; display:block; }
   background: rgba(255,255,255,0.10);
 }
 
+/* HERO */
 .hero{
   padding: 28px 0 12px;
 }
@@ -307,6 +278,7 @@ img{ max-width:100%; display:block; }
   color: var(--muted);
 }
 
+/* BEFORE AFTER */
 .compare{
   display:grid;
   grid-template-columns: repeat(2, 1fr);
@@ -325,6 +297,7 @@ img{ max-width:100%; display:block; }
   border-color: rgba(34,197,94,0.22);
 }
 
+/* GRID KITS */
 .grid{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -398,6 +371,7 @@ img{ max-width:100%; display:block; }
   margin-top: 14px;
 }
 
+/* TAGS */
 .tag{
   display:inline-flex;
   padding: 8px 10px;
@@ -418,6 +392,7 @@ img{ max-width:100%; display:block; }
   border-color: rgba(34,197,94,0.55);
 }
 
+/* LISTS */
 .list{
   margin: 0;
   padding-left: 18px;
@@ -427,6 +402,7 @@ img{ max-width:100%; display:block; }
   color: var(--muted);
 }
 
+/* STEPS */
 .steps{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -453,6 +429,7 @@ img{ max-width:100%; display:block; }
   margin-bottom: 10px;
 }
 
+/* FAQ */
 .faq{
   display:grid;
   gap: 10px;
@@ -475,6 +452,17 @@ img{ max-width:100%; display:block; }
   color: var(--muted);
 }
 
+/* BONUS */
+.bonus{
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  border: 1px dashed rgba(167,139,250,0.55);
+  background: rgba(124,58,237,0.10);
+  color: var(--text);
+}
+
+/* CTA */
 .ctaBox{
   margin-top: 16px;
   border: 1px solid var(--stroke);
@@ -491,6 +479,7 @@ img{ max-width:100%; display:block; }
 .ctaBox h3{ margin:0; }
 .ctaBox p{ margin:0; color: var(--muted); }
 
+/* FOOTER */
 .footer{
   border-top: 1px solid var(--stroke);
   padding: 20px 0;
@@ -566,11 +555,43 @@ img{ max-width:100%; display:block; }
   .steps{ grid-template-columns: 1fr; }
   .compare{ grid-template-columns: 1fr; }
   .ctaBox{ justify-content: flex-start; }
+}
 
-  /* logo menor no celular */
-  .brand__logo-img{
-    width: 46px;
-    height: 46px;
-    transform: scale(1.25);
+/* celular pequeno: header vira “quebrado” bonitinho */
+@media (max-width: 560px){
+  .header__wrap{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 12px 0;
+  }
+
+  .brand{
+    justify-content: flex-start;
+  }
+
+  .brand__mini{
+    display: none;
+  }
+
+  .header__actions{
+    justify-content: stretch;
+  }
+
+  .header__actions .btn{
+    width: 100%;
+    padding: 12px 12px;
+  }
+
+  .hero__actions .btn{
+    width: 100%;
+  }
+}
+
+/* acessibilidade */
+@media (prefers-reduced-motion: reduce){
+  *{
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 }
