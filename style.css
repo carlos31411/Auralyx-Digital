@@ -46,6 +46,54 @@ img{ max-width:100%; display:block; }
   gap: 14px;
   padding: 14px 0;
 }
+/* style.css */
+:root{
+  --bg: #0b1220;
+  --soft: rgba(255,255,255,0.03);
+  --card: rgba(255,255,255,0.06);
+  --card2: rgba(255,255,255,0.10);
+  --text: #e5e7eb;
+  --muted: rgba(229,231,235,0.78);
+  --stroke: rgba(255,255,255,0.12);
+  --radius: 18px;
+}
+
+*{ box-sizing:border-box; }
+html, body{ margin:0; padding:0; }
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:
+    radial-gradient(800px 500px at 20% 10%, rgba(124,58,237,0.35), transparent 55%),
+    radial-gradient(700px 450px at 80% 20%, rgba(34,197,94,0.25), transparent 55%),
+    var(--bg);
+  color: var(--text);
+}
+
+a{ color:inherit; text-decoration:none; }
+button{ font-family:inherit; }
+img{ max-width:100%; display:block; }
+
+.container{
+  width: min(1120px, 92%);
+  margin: 0 auto;
+}
+
+.header{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+  background: rgba(11,18,32,0.65);
+  border-bottom: 1px solid var(--stroke);
+}
+
+.header__wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 14px;
+  padding: 14px 0;
+}
 
 .brand{
   display:flex;
@@ -53,13 +101,20 @@ img{ max-width:100%; display:block; }
   gap: 12px;
 }
 
-.brand__logo{
-  width: 34px;
-  height: 34px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(124,58,237,0.95), rgba(34,197,94,0.90));
-  box-shadow: 0 0 22px rgba(124,58,237,0.30);
+/* ✅ LOGO (corrigido e melhorado) */
+.brand__logo-img{
+  width: 56px;           /* tamanho bom pro header */
+  height: 56px;          /* ✅ sem espaço: 56px */
+  object-fit: contain;   /* não distorce */
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  transform: scale(1.25);     /* aumenta o símbolo dentro */
+  transform-origin: left center;
 }
+
+/* (opcional) se a logo ficar muito alta, descomenta essa linha */
+/* .brand__logo-img{ transform: scale(1.15); } */
 
 .brand__text{
   display:flex;
@@ -462,14 +517,6 @@ img{ max-width:100%; display:block; }
   z-index: 50;
 }
 
-.brand__logo-img{
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
-  border-radius: 10px;
-}
-
-
 .modal.is-open{ display:block; }
 
 .modal__backdrop{
@@ -519,5 +566,11 @@ img{ max-width:100%; display:block; }
   .steps{ grid-template-columns: 1fr; }
   .compare{ grid-template-columns: 1fr; }
   .ctaBox{ justify-content: flex-start; }
-}
 
+  /* logo menor no celular */
+  .brand__logo-img{
+    width: 46px;
+    height: 46px;
+    transform: scale(1.25);
+  }
+}
