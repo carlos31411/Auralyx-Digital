@@ -547,6 +547,121 @@ img{ max-width:100%; display:block; }
 
 .modal__p{ color: var(--muted); margin: 0; }
 
+/* ===========================
+   PROVA / ESTUDO DE CASO
+   =========================== */
+
+.muted{ color: var(--muted); }
+
+.case{
+  margin-top: 14px;
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.05);
+  padding: 16px;
+}
+
+.case__head h3{
+  margin: 0 0 6px;
+}
+
+.case__head p{
+  margin: 0 0 12px;
+}
+
+.case__grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.case__card{
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.06);
+  padding: 14px;
+}
+
+.case__card h4{
+  margin: 0 0 8px;
+}
+
+.case__card--good{
+  background: rgba(34,197,94,0.08);
+  border-color: rgba(34,197,94,0.22);
+}
+
+/* Imagens antes/depois */
+.mediaGrid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.mediaCard{
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+
+.mediaCard--good{
+  border-color: rgba(34,197,94,0.28);
+}
+
+.mediaCard img{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.mediaCard figcaption{
+  padding: 10px 12px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Depoimentos */
+.testimonials{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.quote{
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.06);
+  padding: 14px;
+}
+
+.quote p{
+  margin: 0 0 10px;
+  line-height: 1.35;
+}
+
+.quote span{
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Vídeo */
+.videoBox{
+  margin-top: 14px;
+  border-top: 1px solid var(--stroke);
+  padding-top: 14px;
+}
+
+.video{
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--stroke);
+  background: rgba(0,0,0,0.25);
+}
+
 /* RESPONSIVO */
 @media (max-width: 980px){
   .hero__wrap{ grid-template-columns: 1fr; }
@@ -554,6 +669,9 @@ img{ max-width:100%; display:block; }
   .grid{ grid-template-columns: 1fr; }
   .steps{ grid-template-columns: 1fr; }
   .compare{ grid-template-columns: 1fr; }
+  .case__grid{ grid-template-columns: 1fr; }
+  .mediaGrid{ grid-template-columns: 1fr; }
+  .testimonials{ grid-template-columns: 1fr; }
   .ctaBox{ justify-content: flex-start; }
 }
 
